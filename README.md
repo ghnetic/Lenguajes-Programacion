@@ -10,8 +10,12 @@ programación, las siguientes:
 4. Temporizador para hacer pausar el encendido o apagado de cada led n segundos.
 
 # Integrantes:
-Sofia Gineth Valladares Videa (ghnetic) [20171004366]
-Kevin Daniel Varela Vasquez ( ) [20171004483]
-Angel Edgardo Ordoñez Ordoñez ( ) [20161002109]
-Jorge Alberto Chinchilla Cruz ( ) [20171030523]
-Juan Fernando Midence Sandoval ( ) [20161003418]
+Sofia Gineth Valladares Videa (ghnetic) [20171004366].
+
+Kevin Daniel Varela Vasquez ( ) [20171004483].
+
+Angel Edgardo Ordoñez Ordoñez ( ) [20161002109].
+
+Jorge Alberto Chinchilla Cruz ( ) [20171030523].
+
+Juan Fernando Midence Sandoval ( ) [20161003418].

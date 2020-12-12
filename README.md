@@ -12,10 +12,10 @@ programación, las siguientes:
 # Integrantes:
 Sofia Gineth Valladares Videa (ghnetic) [20171004366].
 
-Kevin Daniel Varela Vasquez ( ) [20171004483].
+Kevin Daniel Varela Vasquez (KEVIN-VARELA-BEEP-UI) [20171004483].
 
-Angel Edgardo Ordoñez Ordoñez ( ) [20161002109].
+Angel Edgardo Ordoñez Ordoñez (Angel-Ordonez) [20161002109].
 
-Jorge Alberto Chinchilla Cruz ( ) [20171030523].
+Jorge Alberto Chinchilla Cruz (Jorge-Chichilla) [20171030523].
 
-Juan Fernando Midence Sandoval ( ) [20161003418].
+Juan Fernando Midence Sandoval (Juan325530) [20161003418].

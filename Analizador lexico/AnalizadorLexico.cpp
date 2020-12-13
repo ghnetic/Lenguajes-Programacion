@@ -5,7 +5,7 @@
 
 //Funciones momentaneamente comentadas
 void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
-//void Estados();//Esta funcion manda los estados de los caracteres leidos
+void Estados();//Esta funcion manda los estados de los caracteres leidos
 //void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
 const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino"}; //arreglo de palabras reservadas
@@ -205,5 +205,29 @@ if(letra<='9'&&letra>='0'){
 
 }  // FINAL
 
-
+void Estados(){
+	switch(estado){
+			case 1:contadorVariables++; 
+			estado=0;
+			break;
+			case 2:contadorVariables++; 
+			estado=0;
+			break;
+			case 3: BuscarReservadas();
+			estado=0;
+			break;
+			case 4:contadorNumeros++; 
+			estado=0;
+			break;
+			case 5:contadorNumeros++; 
+			estado=0;
+			break;
+			case 6:contadorNumeros++; 
+			estado=0;
+			break;
+			default:
+				break;
+				
+		}
+}
 	

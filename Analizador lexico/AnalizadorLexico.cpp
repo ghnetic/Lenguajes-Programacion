@@ -62,6 +62,21 @@ int main(){
 	  
 		//analiza nuestros caracteres mas generales aun no esta construido
 		AnalizadorDeCaracter(caracter);
+			switch(caracter){
+			//caso opcional ya que no usamos parentesis en el lenguaje nuestro
+			case '(':contadorSimbolos++;
+				break;
+			case ')':contadorSimbolos++;
+				break;
+			case '{':contadorSimbolos++;
+				break;
+			case '}':contadorSimbolos++;
+				break;
+			//caso requerido
+			case ';':contadorSimbolos++;
+				break;
+		}
+		i++;
    	}
  
 			

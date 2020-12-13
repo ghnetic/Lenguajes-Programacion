@@ -125,6 +125,20 @@ if(letra<='9'&&letra>='0'){
 				estado=17;
 			}
 		}
+		if(letra=='.'){
+            if((letra)<'1' || (letra)>='9'){
+                estado=19;
+            }else{
+                if(estado==4||estado==5&&((letra)=='1'||(letra)=='2'||(letra)=='3'||(letra)=='4'||(letra)=='5'||(letra)=='6'||(letra)=='7'||(letra)=='8'||(letra)=='9')){
+                    estado=20;
+                }
+                else if(estado!=4 && estado!=5){
+                    printf("\n ERROR"); 
+                    exit(-1);
+                }
+            }
+        }
+
 }  // FINAL
 
 

@@ -138,6 +138,15 @@ if(letra<='9'&&letra>='0'){
                 }
             }
         }
+       if(letra=='^'){
+            if(estado==0){
+                estado=18;
+            }
+            else{
+                printf("\n ERROR '^'");
+                exit(-1);
+            } 
+        }
 
 }  // FINAL
 

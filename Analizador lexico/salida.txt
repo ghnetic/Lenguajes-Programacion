@@ -1,4 +1,0 @@
-------TABLA DE LOS SIMBOLOS-------
-
-Palabras Reservadas: 222223
-Ciclos: 2

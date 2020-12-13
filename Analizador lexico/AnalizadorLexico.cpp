@@ -147,6 +147,36 @@ if(letra<='9'&&letra>='0'){
                 exit(-1);
             } 
         }
+        if(letra=='-'){
+            if(estado==0){
+                estado=7;
+            }else if(estado==12){
+                estado=10;}
+        }   else if(estado==7){
+            estado=17;
+        }
+        if(letra=='='){
+            if(estado==0){
+                estado=9;
+            }else if(estado==18){
+                estado=11;
+            }
+        }else if(estado==12){
+            estado=16;
+           }else if(estado==13){
+                 estado=15;
+           }
+        
+        
+        if(letra=='/'||letra=='*'){
+            if(estado==0){
+                estado=18;
+            }else{
+                printf("ERROR");
+                exit(-1);
+            }
+        }
+
 
 }  // FINAL
 

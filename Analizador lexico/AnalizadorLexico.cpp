@@ -154,6 +154,84 @@ void AnalizadorDeCaracter(char letra){
 				Estado=q17;
 			}
 		}
+		
+		if(letra=='.'){
+			if((letra)<'1' || (letra)>='9'){
+				Estado=q19;
+			}else{
+				if(Estado==q4||Estado==q5&&((letra)=='1'||(letra)=='2'
+				||(letra)=='3'||(letra)=='4'||(letra)=='5'||(letra)=='6'
+				||(letra)=='7'||(letra)=='8'||(letra)=='9')){
+					Estado=q20;
+				}
+				else if(Estado!=q4 && Estado!=q5){
+					exit(-1);
+				}
+			}
+		}
+		if(letra=='^'){
+			if(Estado==q0){
+				Estado=q18;
+			}
+			else{
+				exit(-1);
+			} 
+		}
+		
+		if(letra=='-'){
+			if(Estado==q0){
+				Estado=q7;
+			}else if(Estado==q12){
+				Estado=q10;}
+		}	else if(Estado==q7){
+			Estado=q17;
+		}
+		
+		if(letra=='='){
+			if(Estado==q0){
+				Estado=q9;
+			}else if(Estado==q18){
+				Estado=q11;
+			}
+		}else if(Estado==q12){
+			Estado=q16;
+		}else if(Estado==q13){
+			Estado=q15;
+		}
+		
+		
+		if(letra=='/'||letra=='*'){
+			if(Estado==q0){
+				Estado=q18;
+			}else{
+				exit(-1);
+			}
+		}
+		
+		if(letra=='<'){                
+			if(Estado==q0){
+				Estado=q12;
+			}else{
+				exit(-1);
+			}
+		}
+		if(letra=='>'){   
+			if(Estado==q0){
+				Estado=q14;
+			}else{
+				exit(-1);
+			}
+		}	
+		
+		
+		if(letra=='!'){
+			if(Estado==q0){
+				Estado=q18;
+			}else{
+				exit(-1);
+			} 
+		}
+
 }  // FINAL
 
 

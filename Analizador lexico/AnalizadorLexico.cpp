@@ -12,7 +12,7 @@ const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fi
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
-char identificador[150]; //un identificador para auxiliar la asignación de estados
+char identificador[99]; //un identificador para auxiliar la asignación de estados
 char tmp[2]; //temporal para guardar caracteres de una cadena
 int estado=0; //El estado es un entero el cual representa el valor de lo encontrado. Ejemp: Variable, reservada, simbolo, etc
 

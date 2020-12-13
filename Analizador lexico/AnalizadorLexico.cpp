@@ -176,6 +176,31 @@ if(letra<='9'&&letra>='0'){
                 exit(-1);
             }
         }
+        if(letra=='<'){                
+            if(estado==0){
+                estado=12;
+            }else{
+                printf("ERROR '<'");
+                exit(-1);
+            }
+        }
+        if(letra=='>'){   
+            if(estado==0){
+                estado=14;
+            }else{
+                printf("ERROR '>'");
+                exit(-1);
+            }
+        }   
+        
+        
+        if(letra=='!'){
+            if(estado==0){
+                estado=18;
+            }else{
+                printf("\n ERROR '!'");} 
+        }
+    }
 
 
 }  // FINAL

@@ -6,13 +6,13 @@
 //Funciones momentaneamente comentadas
 void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
 void Estados();//Esta funcion manda los estados de los caracteres leidos
-//void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
+void PalabrasReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
 const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino"}; //arreglo de palabras reservadas
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
-char identificador[99]; //un identificador para auxiliar la asignación de estados
+char identificador[99]; //un identificador para auxiliar la asignacion de estados
 char tmp[2]; //temporal para guardar caracteres de una cadena
 int estado=0; //El estado es un entero el cual representa el valor de lo encontrado. Ejemp: Variable, reservada, simbolo, etc
 
@@ -85,7 +85,8 @@ int main(){
 
 void AnalizadorDeCaracter(char letra){
 		
-		if(letra==32||letra=='}'||letra=='{'||letra=='('||letra==')'||letra==';'){
+		if(letra==32||letra=='}'||letra=='{'||letra=='('
+		||letra==')'||letra==';'){
 			Estados();
 		}
 		
@@ -144,7 +145,9 @@ if(letra<='9'&&letra>='0'){
             if((letra)<'1' || (letra)>='9'){
                 estado=19;
             }else{
-                if(estado==4||estado==5&&((letra)=='1'||(letra)=='2'||(letra)=='3'||(letra)=='4'||(letra)=='5'||(letra)=='6'||(letra)=='7'||(letra)=='8'||(letra)=='9')){
+                if(estado==4||estado==5&&((letra)=='1'||(letra)=='2'||(letra)=='3'
+					||(letra)=='4'||(letra)=='5'||(letra)=='6'||(letra)=='7'||(letra)=='8'
+					||(letra)=='9')){
                     estado=20;
                 }
                 else if(estado!=4 && estado!=5){
@@ -220,6 +223,25 @@ if(letra<='9'&&letra>='0'){
 
 }  // FINAL
 
+
+//Funcion encargada de buscar en nuestro arreglo de palabras reservadas
+void Reservadas(){
+	for(int i=0;i<IndicadorTam;i++){
+		//strcmp se encarga de comparar caracter por caracter dos Strings
+		//reservadas[i] son las palabras reservadas que declaramos como variable global al inicio del programa
+		//identificados es la palabra que el analizador lexico encontro
+		if(strcmp(reservadas[i],identificador)==0){
+			//Cuenta las palabras reservadas que encuentre
+			contadorPalabrasReservadas++;
+			identificador[0]='\0';
+			break;
+		}
+		if(i==(IndicadorTam)-1){
+			exit(-1);
+		}
+	}		
+}
+
 void Estados(){
 	switch(estado){
 			case 1:contadorVariables++; 
@@ -228,7 +250,7 @@ void Estados(){
 			case 2:contadorVariables++; 
 			estado=0;
 			break;
-			case 3: BuscarReservadas();
+			case 3: Reservadas();
 			estado=0;
 			break;
 			case 4:contadorNumeros++; 

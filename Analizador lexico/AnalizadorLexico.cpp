@@ -102,7 +102,22 @@ void AnalizadorDeCaracter(char letra){
 				exit(-1);
 			}
 		}
-
+if(letra<='9'&&letra>='0'){
+			if(estado==0){
+				estado=4;
+			}else if(estado==4||estado==5){
+				estado=5;
+			}else if(estado==13||estado==6){
+				estado=6;
+			}else if(estado==1||estado==2){
+				estado=2;
+			}else if(estado==7){
+				estado=4;
+			}else{
+				printf("\n ERROR"); 
+				exit(-1);
+			}
+		}
 }  // FINAL
 
 

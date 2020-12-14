@@ -3,19 +3,27 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Funciones momentaneamente comentadas
-void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
+/*
+**ERRORES
+	NO VERIFICA SI EMPIEZA CON INICIO
+	HAY VARIAS PARTES MARCADA COMO "REVISAR" QUE NECESITAN ATENCION
+	NO RECONOCE LAS COMAS COMO SIMBOLOS
+*/
+
+
+void AnalizadorDeCaracter(char car);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
 void Estados();//Esta funcion manda los estados de los caracteres leidos
-void PalabrasReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
+void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
 const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino"}; //arreglo de palabras reservadas
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
-char identificador[99]; //un identificador para auxiliar la asignacion de estados
-char tmp[2]; //temporal para guardar caracteres de una cadena
-int estado=0; //El estado es un entero el cual representa el valor de lo encontrado. Ejemp: Variable, reservada, simbolo, etc
-
+char palabraIngresada[50]; //Se encarga de guardar y almacenar los caracteres concatenados que forman las palabras
+char temp[2]; //temporal para guardar caracteres de una cadena
+enum TEstados{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20};
+//iniciando el estado en q0
+TEstados Estado=q0;
 //Estos son los contadores de los elementos de la tabla
 int contadorVariables=0;
 int contadorNumeros=0;
@@ -27,7 +35,7 @@ int contadorApagado=0;
 int contadorCiclos=0;
 
 int main(){
-	FILE *archivoE; //Archivo de entrada (Incluye el lenguaje a analizar)
+	FILE *archivoE; //Archivo de entrada (Incluy el lenguaje a analizar)
 	FILE *archivoS; //Archivo de salida (Donde se imprime la tabla)
    
 	printf("---- ANALIZADOR LEXICO en C++ ---\n");
@@ -43,7 +51,7 @@ int main(){
      	return 1;
    	}
     printf( "Leyendo entrada.txt....\n" ) ;
-	printf( "Archivo list....\n" ) ;
+	printf( "Exitoso.\n" ) ;
 	
    	while (1){
 	   //fgetch toma el texto del archivo y itera caracter a caracter
@@ -51,34 +59,40 @@ int main(){
 	  	if(caracter==EOF){ //EOF:End Of File
 	  	break;
 	  	}
-	  	//Verificamos que el programa empieza con la palabra reservada "inicio"
-	  	while(i==0){
-		   	if(caracter!='i'&&caracter!='n'&&caracter!='i'&&caracter!='c'&&caracter!='i'&&caracter!='o'){
-			   	printf("\n\nError, No se encontro el inicio");
-		   		exit(-1);
-			}
-		   	i=1;
-	  	}
 	  
-		//analiza nuestros caracteres mas generales aun no esta construido
+		//analiza el punto y coma
 		AnalizadorDeCaracter(caracter);
-			switch(caracter){
-			//caso opcional ya que no usamos parentesis en el lenguaje nuestro
-			case '(':contadorSimbolos++;
-				break;
-			case ')':contadorSimbolos++;
-				break;
-			case '{':contadorSimbolos++;
-				break;
-			case '}':contadorSimbolos++;
-				break;
-			//caso requerido
-			case ';':contadorSimbolos++;
-				break;
+		if(caracter==';'){
+			contadorSimbolos;
 		}
-		i++;
-   	}
- 
+	}
+	i++;
+
+   
+	/*
+		La tabla es impresa de 2 maneras distintas,
+		primero es impresa en consola y despues en salida.txt
+	*/
+	//Imprimos en consola
+   	printf("\n\n**********TABLAS DE ELEMENTOS**********\n\n");   
+	printf("Palabras Reservadas: %d\n", contadorPalabrasReservadas);
+	printf("Variables: %d\n", contadorVariables);
+	printf("Numeros: %d\n", contadorNumeros);
+	printf("Aritmeticos: %d\n", contadorSignos);
+	printf("Simbolos: %d\n", contadorSimbolos);
+	printf("Encender: %d\n", contadorEncender);
+	printf("Apagado: %d\n", contadorApagado);
+	printf("Ciclos: %d\n", contadorCiclos/2);
+			
+	fputs("\n\n**********TABLAS DE ELEMENTOS**********\n\n", archivoS);
+	fprintf(archivoS, "Palabras Reservadas: %d", contadorPalabrasReservadas);
+	fprintf(archivoS, "\nVariables: %d", contadorVariables);
+	fprintf(archivoS, "\nNumeros: %d", contadorNumeros);
+	fprintf(archivoS, "\nAritmeticos: %d", contadorSignos);
+	fprintf(archivoS, "\nSimbolos: %d", contadorSimbolos);
+	fprintf(archivoS, "\nEncender: %d", contadorEncender);
+	fprintf(archivoS, "\nApagado: %d", contadorApagado);
+	fprintf(archivoS, "\nCiclos: %d", contadorCiclos/2);
 			
 }
 

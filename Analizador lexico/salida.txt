@@ -6,8 +6,13 @@ Palabras Reservadas: 18
 Variables: 13
 Numeros: 4
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Aritmeticos: 1
 Simbolos: 18
+=======
+Aritmeticos: 3
+Simbolos: 3
+>>>>>>> Stashed changes
 =======
 Aritmeticos: 3
 Simbolos: 3

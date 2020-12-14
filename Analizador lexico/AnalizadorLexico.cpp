@@ -3,13 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
-**ERRORES
-	NO VERIFICA SI EMPIEZA CON INICIO
-	HAY VARIAS PARTES MARCADA COMO "REVISAR" QUE NECESITAN ATENCION
-	NO RECONOCE LAS COMAS COMO SIMBOLOS
-*/
-
 
 void AnalizadorDeCaracter(char car);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
 void Estados();//Esta funcion manda los estados de los caracteres leidos
@@ -73,7 +66,7 @@ int main(){
 		La tabla es impresa de 2 maneras distintas,
 		primero es impresa en consola y despues en salida.txt
 	*/
-	//Imprimos en consola
+	//Imprimimos en consola
    	printf("\n\n**********TABLAS DE ELEMENTOS**********\n\n");   
 	printf("Palabras Reservadas: %d\n", contadorPalabrasReservadas);
 	printf("Variables: %d\n", contadorVariables);
@@ -83,7 +76,8 @@ int main(){
 	printf("Encender: %d\n", contadorEncender);
 	printf("Apagado: %d\n", contadorApagado);
 	printf("Ciclos: %d\n", contadorCiclos/2);
-			
+	
+	//Imprimimos en el archivo de texto salida.txt		
 	fputs("\n\n**********TABLAS DE ELEMENTOS**********\n\n", archivoS);
 	fprintf(archivoS, "Palabras Reservadas: %d", contadorPalabrasReservadas);
 	fprintf(archivoS, "\nVariables: %d", contadorVariables);
@@ -132,7 +126,7 @@ void AnalizadorDeCaracter(char letra){
 				exit(-1);
 			}
 		}
-if(letra<='9'&&letra>='0'){
+		if(letra<='9'&&letra>='0'){
 			if(estado==0){
 				estado=4;
 			}else if(estado==4||estado==5){
@@ -245,9 +239,22 @@ void Reservadas(){
 		//reservadas[i] son las palabras reservadas que declaramos como variable global al inicio del programa
 		//identificados es la palabra que el analizador lexico encontro
 		if(strcmp(reservadas[i],identificador)==0){
+			
+			//Contar Encender
+			if(strcmp(reservadas[0],palabraIngresada)==0)
+				contadorEncender++;
+				
+			//Contar Apagar
+			if(strcmp(reservadas[1],palabraIngresada)==0)
+				contadorApagado++;
+				
+			//Contar Ciclos
+			if(strcmp(reservadas[4],palabraIngresada)==0)
+				contadorCiclos++;
+				
 			//Cuenta las palabras reservadas que encuentre
 			contadorPalabrasReservadas++;
-			identificador[0]='\0';
+			palabraIngresada[0]='\0';
 			break;
 		}
 		if(i==(IndicadorTam)-1){
@@ -261,17 +268,17 @@ void Reservadas(){
 void Estados(){
 	
 	switch(estado){
-			case 1:contadorVariables++; 	// Suma variables A ... Z							//Estado vuelve ser 0
+			case 1:contadorVariables++; 		// Suma variables A ... Z							//Estado vuelve ser 0
 			break;
-			case 2:contadorVariables++; 	//  A ... Z	 a ... z  0 ... 9	
+			case 2:contadorVariables++; 		//  A ... Z	 a ... z  0 ... 9	
 			break;
-			case 3: BuscarReservadas();		// Palabras reservadas
+			case 3: BuscarReservadas();			// Palabras reservadas
 			break;
-			case 4:contadorNumeros++; 		//Numeros 0 ... 9
+			case 4:contadorNumeros++; 			//Numeros 0 ... 9
 			break;
-			case 5:contadorNumeros++; 		// 0 ... 9
+			case 5:contadorNumeros++; 			// 0 ... 9
 			break;
-			case 6:contadorNumeros++; 		// 0 ... 9
+			case 6:contadorNumeros++; 			// 0 ... 9
 			break;
 			case 7:contadorSignos++;			// -
 			break;
@@ -302,6 +309,5 @@ void Estados(){
 			default:
 				break;
 			}	
-			
 			estado = 0;	
 }

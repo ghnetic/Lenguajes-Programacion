@@ -243,12 +243,12 @@ void Reservadas(){
 }
 
 
-
+//Funcion que analiza caracter a carater y decide a que tipo de elemento pertenec
 void Estados(){
 	
 	switch(estado){
 			case 1:contadorVariables++; 	// Suma variables A ... Z	
-			estado=0;						
+			estado=0;						//Estado vuelve ser 0
 			break;
 			case 2:contadorVariables++; 	//  A ... Z	 a ... z  0 ... 9	
 			estado=0;
@@ -296,6 +296,12 @@ void Estados(){
 			estado=0;
 			break;
 			case 18:contadorSignos++; 			//  / * ^ !
+			estado=0;
+			break;
+			case 19:contadorSimbolos++; 		// . \n \t etc... 
+			estado=0;
+			break;
+			case 20:contadorNumeros++; 			// .   0 ... 9				Para decimal
 			estado=0;
 			break;
 			default:

@@ -118,6 +118,13 @@ if(letra<='9'&&letra>='0'){
 				exit(-1);
 			}
 		}
+		if(letra=='+'){
+			if(estado==0){
+				estado=8;
+			}else if(estado==8){
+				estado=17;
+			}
+		}
 }  // FINAL
 
 

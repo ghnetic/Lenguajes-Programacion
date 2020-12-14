@@ -2,11 +2,12 @@
 
 **********TABLAS DE ELEMENTOS**********
 
-Palabras Reservadas: 11
-Variables: 7
+Palabras Reservadas: 17
+Variables: 12
 Numeros: 4
 Aritmeticos: 1
-Simbolos: 1
+Simbolos: 2
 Encender: 2
 Apagado: 1
-Ciclos: 1
+Ciclos: 2
+Instruccion Condicional: 1

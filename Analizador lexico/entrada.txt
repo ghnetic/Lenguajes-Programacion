@@ -1,5 +1,19 @@
-Solo estoy probando si funciona...
-Este archivo es el que le vamos a mandar
-a leer al analizador lexico;
+definir Led1 ;
+definir Led2 ;
+definir Contador ;
+int Bajo = 2 ;
+int Alto = 9 ; 
 
-Si Brandon es feo entonces adios.
+encender Led1 ;
+
+Contador = 5 ;
+repetir mientras Contador > 0 ;
+	encender Led2 , 1 ;
+	Contador = Contador++;
+fin repetir ;
+
+si Led1 + Led2 = 4;
+	Led1 = Bajo;
+sino ;
+	Led1 = Alto;
+fin si ; 

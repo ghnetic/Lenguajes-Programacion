@@ -85,7 +85,25 @@ void AnalizadorDeCaracter(char letra){
 				exit(-1);
 			}
 		}
-		
-}
+		if(letra>='a' && letra<='z'){
+			if(estado==0){
+				tmp[0]=letra; 
+				strcat(identificador,tmp); 
+				estado=3;
+			}else if(estado==1||estado==2){
+				estado=2;
+			}
+			else if(estado==3){
+				tmp[0]=letra; 
+				strcat(identificador,tmp);
+				estado=3;}
+			else{
+				printf("\nNo es valido"); 
+				exit(-1);
+			}
+		}
+
+}  // FINAL
+
 
 	

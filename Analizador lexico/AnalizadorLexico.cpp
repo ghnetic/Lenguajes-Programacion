@@ -26,6 +26,7 @@ int contadorSignos=0;
 int contadorEncender=0;
 int contadorApagado=0;
 int contadorCiclos=0;
+int contadorCondicional=0;
 
 int main(){
 	FILE *archivoE; //Archivo de entrada (Incluy el lenguaje a analizar)
@@ -89,6 +90,7 @@ int main(){
 	fprintf(archivoS, "\nEncender: %d", contadorEncender);
 	fprintf(archivoS, "\nApagado: %d", contadorApagado);
 	fprintf(archivoS, "\nCiclos: %d", contadorCiclos/2);
+	fprintf(archivoS, "\nCondicional: %d", contadorCondicional/2);
 			
 }
 
@@ -250,9 +252,14 @@ void Reservadas(){
 			if(strcmp(reservadas[1],palabraIngresada)==0)
 				contadorApagado++;
 				
-			//Contar Ciclos
+			//Contar Ciclo Repetido
 			if(strcmp(reservadas[4],palabraIngresada)==0)
 				contadorCiclos++;
+			
+			//Contar Condicional Si
+			if(strcmp(reservadas[7], palabraIngresada)==0))
+				contadorCondicional++;
+			
 				
 			//Cuenta las palabras reservadas que encuentre
 			contadorPalabrasReservadas++;

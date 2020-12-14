@@ -79,6 +79,8 @@ int main(){
 	
 	//Imprimimos en el archivo de texto salida.txt		
 	fputs("\n\n**********TABLAS DE ELEMENTOS**********\n\n", archivoS);
+	fputs("\nInstrucciones del analizador:", archivoS);
+	fputs("\nVariables: Deben comenzar en mayusculas", archivoS);
 	fprintf(archivoS, "Palabras Reservadas: %d", contadorPalabrasReservadas);
 	fprintf(archivoS, "\nVariables: %d", contadorVariables);
 	fprintf(archivoS, "\nNumeros: %d", contadorNumeros);

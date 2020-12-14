@@ -6,13 +6,13 @@ Caracteres: A, B, C, D, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X,
 
 Numeros: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-Simbolos: -, +, /, *, =, <, >, /, !, ., ^
+Simbolos:  =, <, >, /, !, ., ^, {, }
 
-Ciclo: Repetir, finRepetin, Mientras, FinMientras
+Ciclo: Repetir, fin Repetin, Mientras, Fin Mientras
 
-Condicionales: Si, Sino, FinSi
+Condicionales: Si, Si no, Fin Si
 
-Signos: +, -
+Signos: +, -, *, /
 
 
 

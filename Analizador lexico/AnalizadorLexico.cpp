@@ -242,10 +242,13 @@ void Reservadas(){
 	}		
 }
 
+
+
 void Estados(){
+	
 	switch(estado){
 			case 1:contadorVariables++; 	// Suma variables A ... Z	
-			estado=0;
+			estado=0;						
 			break;
 			case 2:contadorVariables++; 	//  A ... Z	 a ... z  0 ... 9	
 			estado=0;
@@ -283,9 +286,19 @@ void Estados(){
 			case 14:contadorSimbolos++; 		// >
 			estado=0;
 			break;
+			case 15:contadorSimbolos++; 		// = 
+			estado=0;
+			break;
+			case 16:contadorSimbolos++; 		// =
+			estado=0;
+			break;
+			case 17:contadorSignos++; 			// - +
+			estado=0;
+			break;
+			case 18:contadorSignos++; 			//  / * ^ !
+			estado=0;
+			break;
 			default:
 				break;
-				
-		}
+			}		
 }
-	

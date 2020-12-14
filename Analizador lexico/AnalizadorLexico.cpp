@@ -56,7 +56,7 @@ int main(){
 		//analiza el punto y coma
 		AnalizadorDeCaracter(caracter);
 		if(caracter==';'){
-			contadorSimbolos;
+			contadorSimbolos++;
 		}
 	}
 	i++;

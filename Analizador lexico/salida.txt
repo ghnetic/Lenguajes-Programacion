@@ -6,7 +6,7 @@ Palabras Reservadas: 17
 Variables: 12
 Numeros: 4
 Aritmeticos: 1
-Simbolos: 2
+Simbolos: 18
 Encender: 2
 Apagado: 1
 Ciclos: 2

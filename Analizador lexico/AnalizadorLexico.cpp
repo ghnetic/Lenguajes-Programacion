@@ -247,64 +247,47 @@ void Reservadas(){
 void Estados(){
 	
 	switch(estado){
-			case 1:contadorVariables++; 	// Suma variables A ... Z	
-			estado=0;						//Estado vuelve ser 0
+			case 1:contadorVariables++; 	// Suma variables A ... Z							//Estado vuelve ser 0
 			break;
 			case 2:contadorVariables++; 	//  A ... Z	 a ... z  0 ... 9	
-			estado=0;
 			break;
 			case 3: BuscarReservadas();		// Palabras reservadas
-			estado=0;
 			break;
 			case 4:contadorNumeros++; 		//Numeros 0 ... 9
-			estado=0;
 			break;
 			case 5:contadorNumeros++; 		// 0 ... 9
-			estado=0;
 			break;
 			case 6:contadorNumeros++; 		// 0 ... 9
-			estado=0;
 			break;
 			case 7:contadorSignos++;			// -
-			estado=0;
 			break;
 			case 8:contadorSignos++; 			// +
-			estado=0;
 			break;
 			case 9:contadorSimbolos++; 			// =
-			estado=0;
 			break;
 			case 10:contadorSignos++; 			// -
-			estado=0;
 			break;
 			case 11:contadorSimbolos++; 		// =
-			estado=0;
 			break;
 			case 12:contadorSimbolos++; 		// <
-			estado=0;
 			break;
 			case 14:contadorSimbolos++; 		// >
-			estado=0;
 			break;
 			case 15:contadorSimbolos++; 		// = 
-			estado=0;
 			break;
-			case 16:contadorSimbolos++; 		// =
-			estado=0;
+			case 16:contadorSimbolos++; 		// =;
 			break;
 			case 17:contadorSignos++; 			// - +
-			estado=0;
 			break;
 			case 18:contadorSignos++; 			//  / * ^ !
-			estado=0;
 			break;
 			case 19:contadorSimbolos++; 		// . \n \t etc... 
-			estado=0;
 			break;
 			case 20:contadorNumeros++; 			// .   0 ... 9				Para decimal
-			estado=0;
 			break;
 			default:
 				break;
-			}		
+			}	
+			
+			estado = 0;	
 }

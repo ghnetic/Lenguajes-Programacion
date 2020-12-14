@@ -4,7 +4,7 @@
 #include <string.h>
 
 //Funciones momentaneamente comentadas
-//void AnalizadorDeCaracter(char car);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
+void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
 //void Estados();//Esta funcion manda los estados de los caracteres leidos
 //void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
@@ -61,8 +61,31 @@ int main(){
 	  	}
 	  
 		//analiza nuestros caracteres mas generales aun no esta construido
-		//AnalizadorDeCaracter(caracter);
+		AnalizadorDeCaracter(caracter);
    	}
  
 			
 }
+
+
+void AnalizadorDeCaracter(char letra){
+		
+		if(letra==32||letra=='}'||letra=='{'||letra=='('||letra==')'||letra==';'){
+			Estados();
+		}
+		
+		if( letra>='A' && letra<='Z' ){
+			if(estado==0){
+				estado=1;
+			}else if(estado==1||estado==2){
+				estado=2;
+			}
+			else if(estado!=0 && estado!=1 && estado!=2){
+				printf("\nNo es valido");
+				exit(-1);
+			}
+		}
+		
+}
+
+	

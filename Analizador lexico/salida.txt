@@ -2,12 +2,17 @@
 
 **********TABLAS DE ELEMENTOS**********
 
-Palabras Reservadas: 17
-Variables: 12
+Palabras Reservadas: 18
+Variables: 13
 Numeros: 4
+<<<<<<< Updated upstream
 Aritmeticos: 1
 Simbolos: 18
+=======
+Aritmeticos: 3
+Simbolos: 3
+>>>>>>> Stashed changes
 Encender: 2
 Apagado: 1
 Ciclos: 2
-Instruccion Condicional: 1
+Condicional: 1

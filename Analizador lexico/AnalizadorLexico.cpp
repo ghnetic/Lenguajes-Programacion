@@ -7,7 +7,7 @@ void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caract
 void Estados();//Esta funcion manda los estados de los caracteres leidos
 void Reservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
-const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino","string", "int", "boolean", "decimal"}; //arreglo de palabras reservadas
+const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino","string", "int", "boolean", "decimal","true","false"}; //arreglo de palabras reservadas
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
@@ -76,7 +76,7 @@ int main(){
 	printf("Encender: %d\n", contadorEncender);
 	printf("Apagado: %d\n", contadorApagado);
 	printf("Ciclos: %d\n", contadorCiclos/2);
-	printf("Instruccion Condicional: %d\n", contadorCondicional/2);
+	printf("Condicional: %d\n", contadorCondicional/2);
 			
 	fputs("\n\n**********TABLAS DE ELEMENTOS**********\n\n", archivoS);
 	fprintf(archivoS, "Palabras Reservadas: %d", contadorPalabrasReservadas);
@@ -87,7 +87,7 @@ int main(){
 	fprintf(archivoS, "\nEncender: %d", contadorEncender);
 	fprintf(archivoS, "\nApagado: %d", contadorApagado);
 	fprintf(archivoS, "\nCiclos: %d", contadorCiclos/2);
-	fprintf(archivoS, "\nInstruccion Condicional: %d", contadorCondicional/2);
+	fprintf(archivoS, "\nCondicional: %d", contadorCondicional/2);
 			
 }
 

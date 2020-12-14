@@ -1,5 +1,10 @@
-Solo estoy probando si funciona...
-Este archivo es el que le vamos a mandar
-a leer al analizador lexico;
-
-Si Brandon es feo entonces adios.
+inicio;
+definir Led1;
+definir Led2;
+definir Contador;
+encender Led1, 2, 3 ;
+encender Led2;
+apagar;
+repetir mientras Contador < 7 ;
+	Contador + 1;
+fin repetir;

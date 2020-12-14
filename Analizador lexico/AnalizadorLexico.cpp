@@ -3,19 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
-**ERRORES
-	NO VERIFICA SI EMPIEZA CON INICIO
-	HAY VARIAS PARTES MARCADA COMO "REVISAR" QUE NECESITAN ATENCION
-	NO RECONOCE LAS COMAS COMO SIMBOLOS
-*/
-
-
-void AnalizadorDeCaracter(char car);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
+void AnalizadorDeCaracter(char letra);// Esta funcion se encarga del leer caracter a caracter las palabras para asignarle un estado 
 void Estados();//Esta funcion manda los estados de los caracteres leidos
-void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
+void Reservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
-const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino"}; //arreglo de palabras reservadas
+const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino","string", "int", "boolean", "decimal"}; //arreglo de palabras reservadas
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
@@ -117,18 +109,17 @@ void AnalizadorDeCaracter(char letra){
 		
 		if(letra>='a' && letra<='z'){
 			if(Estado==q0){
-				tmp[0]=letra; 
-				strcat(identificador,tmp); 
+				temp[0]=letra; 
+				strcat(palabraIngresada,temp); 
 				Estado=q3;
 			}else if(Estado==q1||Estado==q2){
 				Estado=q2;
 			}
 			else if(Estado==q3){
-				tmp[0]=letra; 
-				strcat(identificador,tmp);
+				temp[0]=letra; 
+				strcat(palabraIngresada,temp);
 				Estado=q3;}
 			else{
-				printf("\nNo es valido"); 
 				exit(-1);
 			}
 		}
@@ -241,10 +232,21 @@ void Reservadas(){
 		//strcmp se encarga de comparar caracter por caracter dos Strings
 		//reservadas[i] son las palabras reservadas que declaramos como variable global al inicio del programa
 		//identificados es la palabra que el analizador lexico encontro
-		if(strcmp(reservadas[i],identificador)==0){
+		if(strcmp(reservadas[i],palabraIngresada)==0){
+			//Contar Encender
+			if(strcmp(reservadas[0],palabraIngresada)==0)
+				contadorEncender++;
+			//Contar Apagar
+			if(strcmp(reservadas[1],palabraIngresada)==0)
+				contadorApagado++;
+			
+			//Contar Ciclos
+			if(strcmp(reservadas[4],palabraIngresada)==0)
+				contadorCiclos++;
+			
 			//Cuenta las palabras reservadas que encuentre
 			contadorPalabrasReservadas++;
-			identificador[0]='\0';
+			palabraIngresada[0]='\0';
 			break;
 		}
 		if(i==(IndicadorTam)-1){
@@ -257,12 +259,12 @@ void Reservadas(){
 //Funcion que analiza caracter a carater y decide a que tipo de elemento pertenec
 void Estados(){
 	
-	switch(estado){
+	switch(Estado){
 			case 1:contadorVariables++; 	// Suma variables A ... Z							//Estado vuelve ser 0
 			break;
 			case 2:contadorVariables++; 	//  A ... Z	 a ... z  0 ... 9	
 			break;
-			case 3: BuscarReservadas();		// Palabras reservadas
+			case 3: Reservadas();		// Palabras reservadas
 			break;
 			case 4:contadorNumeros++; 		//Numeros 0 ... 9
 			break;
@@ -300,5 +302,5 @@ void Estados(){
 				break;
 			}	
 			
-			estado = 0;	
+			Estado = q0;	
 }

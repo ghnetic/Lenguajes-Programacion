@@ -25,6 +25,7 @@ int contadorSignos=0;
 int contadorEncender=0;
 int contadorApagado=0;
 int contadorCiclos=0;
+int contadorCondicional=0;
 
 int main(){
 	FILE *archivoE; //Archivo de entrada (Incluy el lenguaje a analizar)
@@ -75,6 +76,7 @@ int main(){
 	printf("Encender: %d\n", contadorEncender);
 	printf("Apagado: %d\n", contadorApagado);
 	printf("Ciclos: %d\n", contadorCiclos/2);
+	printf("Instruccion Condicional: %d\n", contadorCondicional/2);
 			
 	fputs("\n\n**********TABLAS DE ELEMENTOS**********\n\n", archivoS);
 	fprintf(archivoS, "Palabras Reservadas: %d", contadorPalabrasReservadas);
@@ -85,6 +87,7 @@ int main(){
 	fprintf(archivoS, "\nEncender: %d", contadorEncender);
 	fprintf(archivoS, "\nApagado: %d", contadorApagado);
 	fprintf(archivoS, "\nCiclos: %d", contadorCiclos/2);
+	fprintf(archivoS, "\nInstruccion Condicional: %d", contadorCondicional/2);
 			
 }
 
@@ -240,9 +243,17 @@ void Reservadas(){
 			if(strcmp(reservadas[1],palabraIngresada)==0)
 				contadorApagado++;
 			
-			//Contar Ciclos
+			//Contar Ciclo Repetir
 			if(strcmp(reservadas[4],palabraIngresada)==0)
 				contadorCiclos++;
+				
+			//Contar Ciclo Mientras
+			if(strcmp(reservadas[6],palabraIngresada)==0)
+				contadorCiclos++;
+			
+			//Contar Condicional
+			if(strcmp(reservadas[7],palabraIngresada)==0)
+				contadorCondicional++;
 			
 			//Cuenta las palabras reservadas que encuentre
 			contadorPalabrasReservadas++;

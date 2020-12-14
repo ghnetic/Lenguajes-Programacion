@@ -8,7 +8,7 @@ void AnalizadorDeCaracter(char car);// Esta funcion se encarga del leer caracter
 void Estados();//Esta funcion manda los estados de los caracteres leidos
 void BuscarReservadas();//Esta funcion se encarga de buscar entre el arreglo de palabras reservadas
 
-const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino"}; //arreglo de palabras reservadas
+const char *reservadas[] = {"encender","apagar","inicio","definir","repetir","fin","mientras","si","sino","string","boolean","int","char", "decimal"}; //arreglo de palabras reservadas
 
 int IndicadorTam=sizeof(reservadas)/sizeof(char *);//El tamano de nuestras las reservadas y el tamano de memoria de el char
 int i; //Auxiliar para los ciclos
